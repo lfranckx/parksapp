@@ -13,6 +13,7 @@ function formatQueryParams(params) {
 }
 
 function getResults(query, maxResults) {
+    console.log(query);
     const params = {
         stateCode: query,
         api_key: key
@@ -20,15 +21,13 @@ function getResults(query, maxResults) {
     const queryString = formatQueryParams(params)
     const url = baseURL + '?' + queryString;
     console.log(url);
-
-    
 }
 
 function watchForm() {
     $('form').submit(event => {
         event.preventDefault();
-        const searchTerm = $('js-search-term').val();
-        const maxResults = $('js-max-results').val();
+        const searchTerm = $('#js-search-term').val();
+        const maxResults = $('#js-max-results').val();
         getResults(searchTerm, maxResults);
     });
 }

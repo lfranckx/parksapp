@@ -14,16 +14,17 @@
 
         <main>
             <form id="js-form">
-                <label>Enter in State by State Code</label>
-                <p id="example">Example: California: CA</p>
+                <label>Enter in a State.</label>
                 <input type="text" name="search-term" id="js-search-term" required>
                 <label>Max results</label>
                 <input type="number" name="max-results" id="js-max-results" max="50" value="10">
                 <input type="submit" name="submit" id="js-submit" value="Search">
             </form>
 
+            <p id="js-error-message"></p>
+
             <section id="results" class="hidden">
-                <h2>Search Results</h2>
+                <h2>Search Results:</h2>
                 <ul id="results-list"></ul>
             </section>
         </main>

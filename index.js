@@ -45,9 +45,9 @@ function displayResults(responseJson) {
         // add list item to display park name, description, URL
         // try adding park's address as well
         $('#results-list').append(
-            `<li>${responseJson.data[i].fullName}</li>
-            <li>${responseJson.data[i].description}</li>
-            <li>${responseJson.data[i].url}</li>`
+            `<li id="listName">${responseJson.data[i].fullName}</li>
+            <li>Description: ${responseJson.data[i].description}</li>
+            <li id="listURL"><a href="${responseJson.data[i].url}">${responseJson.data[i].url}</a></li>`
         )
     }
     $('#results').removeClass('hidden');

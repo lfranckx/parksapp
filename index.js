@@ -37,6 +37,7 @@ function getResults(query, maxResults) {
 
 function displayResults(responseJson) {
     console.log(responseJson);
+
     // remove any prior results on page
     $('#results-list').empty();
     for (let i = 0; i < responseJson.data.length; i++) {
@@ -44,11 +45,12 @@ function displayResults(responseJson) {
         // add list item to display park name, description, URL
         // try adding park's address as well
         $('#results-list').append(
-            `<li>${responseJson.data[i].fullName}</li>`
-            `<li>${responseJson.data[i].description}</li>`
-            `<li>${responseJson.data[i].url}</li>`
+            `<li>${responseJson.data[i].fullName}</li>
+            <li>${responseJson.data[i].description}</li>
+            <li>${responseJson.data[i].url}</li>`
         )
     }
+    $('#results').removeClass('hidden');
 }
 
 function watchForm() {

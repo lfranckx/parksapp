@@ -14,8 +14,8 @@ function formatQueryParams(params) {
 
 function getResults(query, maxResults) {
     const params = {
+        stateCode: query,
         limit: maxResults,
-        q: query,
         api_key: key
     }
     const queryString = formatQueryParams(params)
@@ -45,9 +45,9 @@ function displayResults(responseJson) {
         // add list item to display park name, description, URL
         // try adding park's address as well
         $('#results-list').append(
-            `<li id="listName">${responseJson.data[i].fullName}</li>
+            `<li class="park-name">${responseJson.data[i].fullName}</li>
             <li>Description: ${responseJson.data[i].description}</li>
-            <li id="listURL"><a href="${responseJson.data[i].url}">${responseJson.data[i].url}</a></li>`
+            <li class="park-url"><a href="${responseJson.data[i].url}">${responseJson.data[i].url}</a></li>`
         )
     }
     $('#results').removeClass('hidden');
@@ -56,7 +56,7 @@ function displayResults(responseJson) {
 function watchForm() {
     $('form').submit(event => {
         event.preventDefault();
-        const searchTerm = $('#js-search-term').val();
+        const searchTerm = $('#js-search-term').val().split(',');
         const maxResults = $('#js-max-results').val();
         getResults(searchTerm, maxResults);
     });

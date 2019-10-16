@@ -6,6 +6,10 @@ body {
 font-family: 'Roboto', sans-serif;
 }
 
+label {
+    display: inline;
+}
+
 button, input[type="text"] {
 padding: 5px;
 }
@@ -16,4 +20,16 @@ cursor: pointer;
 
 .hidden {
     display: none;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.park-name {
+    font-size: 1.4em;
+}
+
+.park-url {
+    margin-bottom: 10px;
 }
